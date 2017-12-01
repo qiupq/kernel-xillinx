@@ -57,3 +57,7 @@ obj-y				+= mic/
 obj-$(CONFIG_GENWQE)		+= genwqe/
 obj-$(CONFIG_ECHO)		+= echo/
 obj-$(CONFIG_MYIR_STLM75X)	+= myir_stlm75x.o
+
+#obj-y				+= plm-zturn-eds.o
+#obj-m				+= plm-block.o
+

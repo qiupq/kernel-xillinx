@@ -723,6 +723,7 @@ static irqreturn_t otg_irq(int irq, void *_dev)
 	if (int_mask & OTGSC_IDIS) {
 		dev_dbg(xotg->dev, "%s: id change int\n", __func__);
 		xotg->hsm.id = (int_sts & OTGSC_ID) ? 1 : 0;
+		xotg->hsm.a_bus_req = (xotg->hsm.id) ? 0 : 1;//add by qiupq for otg mode
 		dev_dbg(xotg->dev, "id = %d\n", xotg->hsm.id);
 		flag = 1;
 	}
