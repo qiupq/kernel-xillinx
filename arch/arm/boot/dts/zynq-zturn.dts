@@ -28,6 +28,7 @@
 
 	memory {
 		device_type = "memory";
+		/* maybe 0x40000000 */
 		reg = <0x0 0x30000000>; // Reserved 256MB for xylonfb driver
 	};
 
@@ -44,6 +45,7 @@
     xlnx,emio-gpio-width = <0x40>;
     xlnx,mio-gpio-mask = <0x5600>;
 };
+
 
 &qspi {
 	status = "okay";
@@ -90,12 +92,16 @@
 	};
 };
 
-&usb0 {
+&usb0 {/* dr_mode value:otg;host;peripheral */
 	status = "okay";
 	dr_mode = "host";
 	phy_type = "ulpi";	
 };
-
+/*
+&plm0 {
+	status = "okay";
+};
+*/
 &gem0 {
     compatible = "cdns,gem";
     reg = <0xe000b000 0x4000>;
@@ -146,7 +152,7 @@
         interrupt-parent = <&intc>;
         interrupts = < 0 31 4 >;
     };
-
+/*
     sii902x@3b {
         compatible = "sii902x";
         reg = <0x3b>;
@@ -155,7 +161,7 @@
 		mode_str = "1920x1080";
 		bits-per-pixel = <16>;
     };
-
+*/
 	stlm75@49 {
 		status = "okay";
 		compatible = "myir-stlm75x";
@@ -186,7 +192,7 @@
 };
 
 &ps7_axi {
-
+/*
 	gpio-leds {
 		compatible = "gpio-leds";
 		led_r {
@@ -226,6 +232,7 @@
             lable = "pl-beep";
             gpios = <&gpio0 117 0>;
         };
+*/
 	
 /* MYIR, added USR key */
 	gpio-keys {
@@ -271,6 +278,7 @@
 			autorepeat;
 		}; */
 	};
-	
+/*	
  /include/ "zynq-zturn-xylon.dtsi"
+ */
 };
